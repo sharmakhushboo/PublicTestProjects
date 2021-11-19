@@ -44,7 +44,7 @@ else {
         --enable-managed-identity `
         --vm-set-type VirtualMachineScaleSets `
         --node-vm-size $NodeVmSize  `
-        --node-count 2 `
+        --node-count 4 `
         --generate-ssh-keys 
 }
 log "Creating aks cluster"
