@@ -14,7 +14,7 @@ param (
 
 Import-Module ./commenutils.psm1 -force
 
-VerifyKubeCtl
+#VerifyKubeCtl
 
 $jmeterMasterDeploymentName=JmeterMasterDeploymentName -tenant $tenant
 $jmeterSlaveDeploymentName=JmeterSlaveDeploymentName -tenant $tenant

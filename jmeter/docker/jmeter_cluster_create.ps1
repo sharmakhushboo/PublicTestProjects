@@ -16,11 +16,11 @@ Set-Location $PathToYaml
 
 Import-Module ./commenutils.psm1 -force
 
-VerifyKubeCtl
+#VerifyKubeCtl
 
 kubectl version --short
 
-VerifyHelm3
+#VerifyHelm3
 
 [bool] $IsHelmDeployed = IsJmeterHelmDeployed -tenant $tenant
 Write-Output "Checking if Helm is deployed on $($tenant): $($IsHelmDeployed)"

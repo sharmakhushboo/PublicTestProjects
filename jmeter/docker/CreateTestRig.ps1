@@ -8,7 +8,7 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$AksClusterName,
     [Parameter(Mandatory=$false)]
-    [string]$NodeVmSize="Standard_DS2_v2",
+    [string]$NodeVmSize="Standard_D16_v4",
     [Parameter(Mandatory=$false)]
     [switch] $EnableClusterAutoscaler,
     [Parameter(Mandatory=$false)]
@@ -44,7 +44,7 @@ else {
         --enable-managed-identity `
         --vm-set-type VirtualMachineScaleSets `
         --node-vm-size $NodeVmSize  `
-        --node-count 1 `
+        --node-count 2 `
         --generate-ssh-keys 
 }
 log "Creating aks cluster"
@@ -59,5 +59,5 @@ helm repo add stable https://charts.helm.sh/stable
 log "Creating AKS Namespace"
 kubectl create namespace $tenant
 #timing issue may be here
-kubectl -n $tenant apply -f ./jmeter_grafana_deploy.yaml
-kubectl -n $tenant rollout status deployment jmeter-grafana
+#kubectl -n $tenant apply -f ./jmeter_grafana_deploy.yaml
+#kubectl -n $tenant rollout status deployment jmeter-grafana

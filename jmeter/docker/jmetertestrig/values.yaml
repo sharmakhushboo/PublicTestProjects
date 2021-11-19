@@ -5,8 +5,8 @@ replicaCount: 2
 jmeterMasterImage: shadowpic/jmeter-master:latest
 jmeterMasterMemory: 4Gi
 jmeterMasterCpu: 2
-jmeterSlaveMemory: 2Gi
-jmeterSlaveCpu: 2
+jmeterSlaveMemory: 48Gi
+jmeterSlaveCpu: 12
 jmeterSlaveImage: shadowpic/jmeter-slave:latest
 jmeterInfluxDbImage: influxdb:1.8
 jmeterInfluxDbStorageClass:  # Allow specifying alternate StorageClass
