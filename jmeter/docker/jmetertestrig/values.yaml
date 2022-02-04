@@ -2,19 +2,19 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 Globals:
-  RedisEnabled: true
+  RedisEnabled: false
 replicaCount: 2
 jmeterMasterImage: shadowpic/jmeter-master:latest
 jmeterMasterMemory: 4Gi
 jmeterMasterCpu: 2
-jmeterSlaveMemory: 48Gi
-jmeterSlaveCpu: 12
+jmeterSlaveMemory: 54Gi #watch the trend is and increase
+jmeterSlaveCpu: 16
 jmeterSlaveImage: shadowpic/jmeter-slave:latest
 jmeterInfluxDbImage: influxdb:1.8
 jmeterInfluxDbStorageClass:  # Allow specifying alternate StorageClass
-csv2RedisEnabled: true
+csv2RedisEnabled: false
 csv2RedisImage: shadowpic/csv2redis:latest
-influxDBEnabled: true
+influxDBEnabled: false
 redis:
   usePassword: false
   cluster:

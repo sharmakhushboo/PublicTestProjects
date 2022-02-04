@@ -34,10 +34,12 @@ if($IsHelmDeployed -eq $false)
     
     write-output "Creating JMeter Influx database"
 
-    $InfluxPod = $(kubectl -n $tenant get pods --selector=app=influxdb --no-headers=true --output=name).Replace("pod/","")
+    if($influxDBEnabled -eq $true)
+    {
+        $InfluxPod = $(kubectl -n $tenant get pods --selector=app=influxdb --no-headers=true --output=name).Replace("pod/","")
 
-    kubectl -n $tenant exec $InfluxPod -- curl -i -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE jmeter"
-
+        kubectl -n $tenant exec $InfluxPod -- curl -i -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE jmeter"
+    }
 }
 
 ./Set-JmeterTestRig.ps1 -tenant $tenant -ZeroOutTestRig $true
